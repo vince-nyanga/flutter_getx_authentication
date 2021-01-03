@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fluter GetX Auth',
       theme: ThemeData(
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      debugShowCheckedModeBanner: false,
       home: Obx(() {
         if (controller.state is UnAuthenticated) {
           return LoginPage();
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
             user: (controller.state as Authenticated).user,
           );
         }
+
+        // splash screen
         return Scaffold(
           body: Center(
             child: CircularProgressIndicator(),
