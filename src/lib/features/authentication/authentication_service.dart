@@ -1,6 +1,7 @@
 import 'package:flutter_getx_auth/models/models.dart';
+import 'package:get/get.dart';
 
-abstract class AuthenticationService {
+abstract class AuthenticationService extends GetxService{
   Future<User> getCurrentUser();
   Future<User> signInWithEmailAndPassword(String email, String password);
   Future<void> signOut();
@@ -9,6 +10,7 @@ abstract class AuthenticationService {
 class FakeAuthenticationService extends AuthenticationService {
   @override
   Future<User> getCurrentUser() async {
+    // simulated delay
     await Future.delayed(Duration(seconds: 2));
     return null;
   }
