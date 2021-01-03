@@ -1,6 +1,7 @@
-import 'package:flutter_getx_auth/features/authentication/authentication.dart';
-import 'package:flutter_getx_auth/features/login/login_state.dart';
 import 'package:get/get.dart';
+
+import '../../features.dart';
+import 'login_state.dart';
 
 class LoginController  extends GetxController {
   final AuthenticationController _authenticationController = Get.find();

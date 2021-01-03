@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_auth/features/login/login_controller.dart';
-import 'package:flutter_getx_auth/features/login/login_state.dart';
 import 'package:get/get.dart';
+
+import 'login_controller.dart';
+import 'login_state.dart';
 
 class LoginPage extends StatelessWidget {
   @override
