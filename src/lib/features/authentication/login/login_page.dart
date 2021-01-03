@@ -26,7 +26,7 @@ class _SignInForm extends StatefulWidget {
 }
 
 class __SignInFormState extends State<_SignInForm> {
-  final controller = LoginController();
+  final _controller = Get.put(LoginController());
 
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
@@ -86,17 +86,17 @@ class __SignInFormState extends State<_SignInForm> {
                 padding: const EdgeInsets.all(16),
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
                 child: Text('LOG IN'),
-                onPressed: controller.state is LoginLoading ? () {} : _onLoginButtonPressed,
+                onPressed: _controller.state is LoginLoading ? () {} : _onLoginButtonPressed,
               ),
               const SizedBox(height: 20,),
-              if (controller.state is LoginFailure)
-                Text((controller.state as LoginFailure).error,
+              if (_controller.state is LoginFailure)
+                Text((_controller.state as LoginFailure).error,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Get.theme.errorColor
                   ),
                 ),
-              if (controller.state is LoginLoading)
+              if (_controller.state is LoginLoading)
                 Center(child: CircularProgressIndicator(),)
             ],
           ),
@@ -107,7 +107,7 @@ class __SignInFormState extends State<_SignInForm> {
 
   _onLoginButtonPressed() {
     if (_key.currentState.validate()) {
-      controller.login(_emailController.text, _passwordController.text);
+      _controller.login(_emailController.text, _passwordController.text);
     } else {
       setState(() {
         _autoValidate = true;
