@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_auth/features/localization/localization_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'login_controller.dart';
@@ -10,7 +11,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Login'),
+          title: Text(AppLocalizations.of(context).signIn),
         ),
         body: SafeArea(
           minimum: const EdgeInsets.all(16),
@@ -19,7 +20,6 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-
 class _SignInForm extends StatefulWidget {
   @override
   __SignInFormState createState() => __SignInFormState();
@@ -27,6 +27,7 @@ class _SignInForm extends StatefulWidget {
 
 class __SignInFormState extends State<_SignInForm> {
   final _controller = Get.put(LoginController());
+  final _localizationController = Get.find<LocalizationController>();
 
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
@@ -35,10 +36,11 @@ class __SignInFormState extends State<_SignInForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
+    return Obx(() {
       return Form(
         key: _key,
-        autovalidateMode: _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
+        autovalidateMode:
+            _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -84,20 +86,48 @@ class __SignInFormState extends State<_SignInForm> {
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 padding: const EdgeInsets.all(16),
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(8.0)),
                 child: Text(AppLocalizations.of(context).signIn),
-                onPressed: _controller.state is LoginLoading ? () {} : _onLoginButtonPressed,
+                onPressed: _controller.state is LoginLoading
+                    ? () {}
+                    : _onLoginButtonPressed,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               if (_controller.state is LoginFailure)
-                Text((_controller.state as LoginFailure).error,
+                Text(
+                  (_controller.state as LoginFailure).error,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Get.theme.errorColor
-                  ),
+                  style: TextStyle(color: Get.theme.errorColor),
                 ),
               if (_controller.state is LoginLoading)
-                Center(child: CircularProgressIndicator(),)
+                Center(
+                  child: CircularProgressIndicator(),
+                ),
+              Text(
+                  AppLocalizations.of(context).selectLanguageTitle,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                ListTile(
+                  title: Text(AppLocalizations.of(context).englishTitle),
+                  leading: Radio(
+                    activeColor: Colors.pinkAccent,
+                    value: Locale('en', ''),
+                    groupValue: _localizationController.locale,
+                    onChanged: (value) => _localizationController.setLocale(value),
+                  ),
+                ),
+                ListTile(
+                  title: Text(AppLocalizations.of(context).spanishTitle),
+                  leading: Radio(
+                    activeColor: Colors.pinkAccent,
+                    value: Locale('es', ''),
+                    groupValue: _localizationController.locale,
+                    onChanged: (value) => _localizationController.setLocale(value),
+                  ),
+                ),
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_auth/features/features.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_getx_auth/features/localization/localization_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -10,12 +10,15 @@ void main() {
 }
 
 void initialize() {
-  Get.lazyPut(() => AuthenticationController(Get.put(FakeAuthenticationService())),);
+  Get.lazyPut(
+    () => AuthenticationController(Get.put(FakeAuthenticationService())),
+  );
+  Get.put(new LocalizationController());
 }
 
 class MyApp extends GetWidget<AuthenticationController> {
+  final _localizationController = Get.find<LocalizationController>();
 
-  // This widget is the root of your application
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -27,6 +30,7 @@ class MyApp extends GetWidget<AuthenticationController> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
+      locale: _localizationController.locale,
       home: Obx(() {
         if (controller.state is UnAuthenticated) {
           return LoginPage();

@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Text(AppLocalizations.of(context).welcomeTitle),
       ),
       body: SafeArea(
         minimum: const EdgeInsets.all(16),

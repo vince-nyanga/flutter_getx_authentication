@@ -1,0 +1,14 @@
+{
+  "@@locale": "es",
+  "signIn": "Registrarse",
+  "signOut": "Desconectar",
+  "emailLabel": "E-mail",
+  "passwordLabel": "Contraseña",
+  "emailRequiredMessage": "Se requiere E-mail",
+  "passwordRequiredMessage": "Se requiere contraseña",
+  "welcomeMessage": "Bienvenido, {name}",
+  "welcomeTitle": "Bienvenidos",
+  "selectLanguageTitle": "Seleccione el idioma",
+  "englishTitle": "Inglés",
+  "spanishTitle": "Español"
+}

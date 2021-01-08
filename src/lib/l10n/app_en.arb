@@ -8,7 +8,7 @@
   "@signOut": {
     "description": "Sign out command"
   },
-  "emailLabel": "Email address",
+  "emailLabel": "Email",
   "@emailLabel": {
     "description": "Email input text label"
   },
@@ -24,7 +24,7 @@
   "@passwordRequiredMessage": {
     "description": "Error message when user does not enter password"
   },
-  "welcomeMessage": "Welcome, {name}",
+  "welcomeMessage": "Welcome, {name}!",
   "@welcomeMessage": {
     "description": "A welcome message to the authenticated user",
     "placeholders": {
@@ -33,5 +33,21 @@
         "example": "Vince"
       }
     }
+  },
+  "welcomeTitle": "Welcome",
+  "@welcomeTitle": {
+    "description": "Welcome page title"
+  },
+  "selectLanguageTitle": "Select language",
+  "@selectLanguageTitle": {
+    "description": "Select language title"
+  },
+  "englishTitle": "English",
+  "@englishTitle": {
+    "description": "English title"
+  },
+  "spanishTitle": "Spanish",
+  "@spanishTitle": {
+    "description": "Spanish title"
   }
 }
