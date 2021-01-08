@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'login_controller.dart';
 import 'login_state.dart';
 
@@ -45,7 +45,7 @@ class __SignInFormState extends State<_SignInForm> {
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Email address',
+                  labelText: AppLocalizations.of(context).emailLabel,
                   filled: true,
                   isDense: true,
                 ),
@@ -54,7 +54,7 @@ class __SignInFormState extends State<_SignInForm> {
                 autocorrect: false,
                 validator: (value) {
                   if (value == null) {
-                    return 'Email is required.';
+                    return AppLocalizations.of(context).emailRequiredMessage;
                   }
                   return null;
                 },
@@ -64,7 +64,7 @@ class __SignInFormState extends State<_SignInForm> {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: AppLocalizations.of(context).passwordLabel,
                   filled: true,
                   isDense: true,
                 ),
@@ -72,7 +72,7 @@ class __SignInFormState extends State<_SignInForm> {
                 controller: _passwordController,
                 validator: (value) {
                   if (value == null) {
-                    return 'Password is required.';
+                    return AppLocalizations.of(context).passwordRequiredMessage;
                   }
                   return null;
                 },
@@ -85,7 +85,7 @@ class __SignInFormState extends State<_SignInForm> {
                 textColor: Colors.white,
                 padding: const EdgeInsets.all(16),
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
-                child: Text('LOG IN'),
+                child: Text(AppLocalizations.of(context).signIn),
                 onPressed: _controller.state is LoginLoading ? () {} : _onLoginButtonPressed,
               ),
               const SizedBox(height: 20,),

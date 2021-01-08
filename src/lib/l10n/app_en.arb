@@ -1,0 +1,37 @@
+{
+  "@@locale": "en",
+  "signIn": "Sign in",
+  "@signIn": {
+    "description": "Sign in command"
+  },
+  "signOut": "Sign out",
+  "@signOut": {
+    "description": "Sign out command"
+  },
+  "emailLabel": "Email address",
+  "@emailLabel": {
+    "description": "Email input text label"
+  },
+  "passwordLabel": "Password",
+  "@passwordLabel": {
+    "description": "Password input text label"
+  },
+  "emailRequiredMessage": "Email address is required",
+  "@emailRequiredMessage": {
+    "description": "Error message when user does not enter email address"
+  },
+  "passwordRequiredMessage": "Password is required",
+  "@passwordRequiredMessage": {
+    "description": "Error message when user does not enter password"
+  },
+  "welcomeMessage": "Welcome, {name}",
+  "@welcomeMessage": {
+    "description": "A welcome message to the authenticated user",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Vince"
+      }
+    }
+  }
+}

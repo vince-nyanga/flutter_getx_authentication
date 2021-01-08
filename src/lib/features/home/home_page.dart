@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_auth/features/authentication/authentication.dart';
 import 'package:flutter_getx_auth/features/home/home_controller.dart';
 import 'package:flutter_getx_auth/models/models.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
   final User user;
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                'Welcome, ${user.name}',
+                AppLocalizations.of(context).welcomeMessage(user.name),
                 style: TextStyle(
                     fontSize: 24
                 ),
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
               ),
               FlatButton(
                 textColor: Theme.of(context).primaryColor,
-                child: Text('Logout'),
+                child: Text(AppLocalizations.of(context).signOut),
                 onPressed: (){
                   _controller.signOut();
                 },
