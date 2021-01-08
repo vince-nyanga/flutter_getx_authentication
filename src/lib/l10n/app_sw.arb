@@ -1,0 +1,15 @@
+{
+  "@@locale": "sw",
+  "signIn": "Ingia",
+  "signOut": "Toka",
+  "emailLabel": "Barua pepe",
+  "passwordLabel": "Nenosiri",
+  "emailRequiredMessage": "Anuani ya barua pepe inahitajika",
+  "passwordRequiredMessage": "Nenosiri inahitajika",
+  "welcomeMessage": "Karibu, {name}",
+  "welcomeTitle": "Karibu",
+  "selectLanguageTitle": "Chagua lugha",
+  "englishTitle": "English",
+  "spanishTitle": "Spanish",
+  "swahiliTitle": "Kiswahili"
+}

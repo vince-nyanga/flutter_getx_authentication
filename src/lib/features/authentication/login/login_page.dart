@@ -128,6 +128,15 @@ class __SignInFormState extends State<_SignInForm> {
                     onChanged: (value) => _localizationController.setLocale(value),
                   ),
                 ),
+                ListTile(
+                  title: Text(AppLocalizations.of(context).swahiliTitle),
+                  leading: Radio(
+                    activeColor: Colors.pinkAccent,
+                    value: Locale('sw', ''),
+                    groupValue: _localizationController.locale,
+                    onChanged: (value) => _localizationController.setLocale(value),
+                  ),
+                ),
             ],
           ),
         ),

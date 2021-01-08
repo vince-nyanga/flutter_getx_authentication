@@ -49,5 +49,9 @@
   "spanishTitle": "Spanish",
   "@spanishTitle": {
     "description": "Spanish title"
+  },
+  "swahiliTitle": "Kiswahili",
+  "@swahiliTitle": {
+    "description": "Swahili title"
   }
 }
