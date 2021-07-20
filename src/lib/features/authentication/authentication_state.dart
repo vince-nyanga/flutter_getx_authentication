@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_getx_auth/models/models.dart';
 
@@ -16,7 +15,7 @@ class UnAuthenticated extends AuthenticationState {}
 class Authenticated extends AuthenticationState {
   final User user;
 
-  Authenticated({@required this.user});
+  Authenticated({required this.user});
 
   @override
   List<Object> get props => [user];
@@ -25,7 +24,7 @@ class Authenticated extends AuthenticationState {
 class AuthenticationFailure extends AuthenticationState {
   final String message;
 
-  AuthenticationFailure({@required this.message});
+  AuthenticationFailure({required this.message});
 
   @override
   List<Object> get props => [message];

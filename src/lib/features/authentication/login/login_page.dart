@@ -19,7 +19,6 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-
 class _SignInForm extends StatefulWidget {
   @override
   __SignInFormState createState() => __SignInFormState();
@@ -35,10 +34,11 @@ class __SignInFormState extends State<_SignInForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
+    return Obx(() {
       return Form(
         key: _key,
-        autovalidateMode: _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
+        autovalidateMode:
+            _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -80,24 +80,25 @@ class __SignInFormState extends State<_SignInForm> {
               const SizedBox(
                 height: 16,
               ),
-              RaisedButton(
-                color: Theme.of(context).primaryColor,
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(16),
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
+              ElevatedButton(
                 child: Text('LOG IN'),
-                onPressed: _controller.state is LoginLoading ? () {} : _onLoginButtonPressed,
+                onPressed: _controller.state is LoginLoading
+                    ? () {}
+                    : _onLoginButtonPressed,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               if (_controller.state is LoginFailure)
-                Text((_controller.state as LoginFailure).error,
+                Text(
+                  (_controller.state as LoginFailure).error,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Get.theme.errorColor
-                  ),
+                  style: TextStyle(color: Get.theme.errorColor),
                 ),
               if (_controller.state is LoginLoading)
-                Center(child: CircularProgressIndicator(),)
+                Center(
+                  child: CircularProgressIndicator(),
+                )
             ],
           ),
         ),
@@ -106,7 +107,7 @@ class __SignInFormState extends State<_SignInForm> {
   }
 
   _onLoginButtonPressed() {
-    if (_key.currentState.validate()) {
+    if (_key.currentState!.validate()) {
       _controller.login(_emailController.text, _passwordController.text);
     } else {
       setState(() {
